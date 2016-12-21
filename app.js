@@ -26,7 +26,9 @@ app.get('/search', function (req, res) {
   var searchtxt = req.query.search;
   console.log('Search data:' + searchtxt);
   var searchURL = 'http://www.google.com/search?&as_epq=' + searchtxt;
+  console.log('Search URL:' + searchURL);
   res.redirect(searchURL);
+  console.log('Search URL End');
 });
 
 // get the app environment from Cloud Foundry
