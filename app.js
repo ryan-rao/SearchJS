@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 app.get('/search', function (req, res) {
   var searchtxt = req.query.search;
   console.log('Search data:' + searchtxt);
-  var searchURL = 'https://www.google.com/search?&as_epq=' + searchtxt;
+  var searchURL = 'http://www.google.com/search?&as_epq=' + searchtxt;
   res.redirect(searchURL);
 });
 
