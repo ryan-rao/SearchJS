@@ -16,7 +16,18 @@ var cfenv = require('cfenv');
 var app = express();
 
 // serve the files out of ./public as our main files
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
+app.get('/', function (req, res) {
+  console.log('URL:' + req.baseUrl);
+  res.sendfile(__dirname + '/index.html');
+});
+
+app.get('/search', function (req, res) {
+  var searchtxt = req.query.search;
+  console.log('Search data:' + searchtxt);
+  var searchURL = 'https://www.baidu.com/s?wd=' + searchtxt;
+  res.redirect(searchURL);
+});
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
