@@ -21,7 +21,10 @@ app.get('/', function (req, res) {
   console.log('URL:' + req.baseUrl);
   res.sendfile(__dirname + '/index.html');
 });
-
+app.get('/baidu', function (req, res) {
+  console.log('URL:' + req.baseUrl);
+  res.sendfile(__dirname + '/baidu.html');
+});
 app.get('/search', function (req, res) {
   var searchtxt = req.query.search;
   console.log('Search data:' + searchtxt);
@@ -30,6 +33,15 @@ app.get('/search', function (req, res) {
   res.redirect(searchURL);
   console.log('Search URL End');
 });
+app.get('/baidu_search', function (req, res) {
+  var searchtxt = req.query.search;
+  console.log('Search data:' + searchtxt);
+  var searchURL = 'https://www.baidu.com/s?wd=' + searchtxt;
+  console.log('Search URL:' + searchURL);
+  res.redirect(searchURL);
+  console.log('Search URL End');
+});
+
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
