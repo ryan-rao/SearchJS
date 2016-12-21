@@ -30,7 +30,8 @@ app.get('/search', function (req, res) {
   console.log('Search data:' + searchtxt);
   var searchURL = 'http://www.google.com/search?&as_epq=' + searchtxt;
   console.log('Search URL:' + searchURL);
-  res.redirect(searchURL);
+  req.pipe(request(searchURL)).pipe(res);
+  //res.redirect(searchURL);
   console.log('Search URL End');
 });
 app.get('/baidu_search', function (req, res) {
