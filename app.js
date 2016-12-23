@@ -19,10 +19,10 @@ var app = express();
 //app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
   console.log('URL:' + req.baseUrl);
-  //res.sendfile(__dirname + '/index.html');
+  res.sendfile(__dirname + '/index.html');
   //var searchURL = 'http://www.google.com';
-  var searchURL = 'https://www.baidu.com/' + req.url;
-  req.pipe(request(url)).pipe(res);
+  //var searchURL = 'https://www.baidu.com/' + req.url;
+  //req.pipe(request(url)).pipe(res);
 });
 app.get('/baidu', function (req, res) {
   console.log('URL:' + req.baseUrl);
