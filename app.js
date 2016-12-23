@@ -49,9 +49,7 @@ app.get('/baidu_search', function (req, res) {
   console.log('Search data:' + searchtxt);
   var searchURL = 'https://www.baidu.com/s?wd=' + searchtxt;
   console.log('Search URL:' + searchURL);
-  var req_red = http.request(searchURL, function(res){
-      
-  }
+  
   res.redirect(searchURL);
   console.log('Search URL End');
 });
